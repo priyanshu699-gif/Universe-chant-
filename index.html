@@ -1,0 +1,309 @@
+```html
+<!DOCTYPE html>
+<html lang="hi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>राधा - Era of Love</title>
+    
+    <!-- Premium Typography & Animations Libraries -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Ultra-HD Hindi typography using Noto Sans Devanagari along with supportive aesthetic fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Great+Vibes&family=Noto+Sans+Devanagari:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        /* * LUXURY COLOR PALETTE & DESIGN SYSTEM TOKENS 
+         * Primary Theme Colors:
+         * - Dark Purple: #0F021A (Cosmic spiritual depth)
+         * - Royal Pink: #D42B75 (Divine pure love aspect)
+         * - Rose Gold: #E5A93C (Royal elegance and glow)
+         * - Soft White Glow: #FFF0F5 (Pure transcendental light)
+         */
+        :root {
+            --dark-purple: #0F021A;
+            --deep-purple: #1F0533;
+            --royal-pink: #D42B75;
+            --rose-gold: #E5A93C;
+            --rose-gold-glow: rgba(229, 169, 60, 0.4);
+            --soft-glow: #FFF0F5;
+            --glass-bg: rgba(31, 5, 51, 0.45);
+            --glass-border: rgba(212, 43, 117, 0.25);
+            --font-devanagari: 'Noto Sans Devanagari', sans-serif;
+            --font-aesthetic: 'Great Vibes', cursive;
+            --font-royal: 'Cinzel Decorative', serif;
+        }
+
+        /* Prevent system default behaviors for mobile-first Android WebView optimization */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+            -webkit-user-drag: none;
+            scrollbar-width: none; /* Hide standard scrollbar in Firefox */
+        }
+
+        /* Hide Scrollbar for Chrome, Safari, and Opera */
+        *::-webkit-scrollbar {
+            display: none;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+            background-color: var(--dark-purple);
+            color: var(--soft-glow);
+            font-family: var(--font-devanagari);
+            font-size: 16px;
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overscroll-behavior-y: none; /* Block elastic scrolls on mobile */
+        }
+
+        /* 60FPS Optimization: Force GPU and Hardware Acceleration */
+        .hardware-accelerated {
+            transform: translateZ(0);
+            backface-visibility: hidden;
+            perspective: 1000px;
+            will-change: transform, opacity;
+        }
+
+        /* Background Particle & Visual Canvas Elements */
+        #space-canvas, #petal-canvas, #sparkle-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        #space-canvas { z-index: 0; }
+        #petal-canvas { z-index: 1; }
+        #sparkle-canvas { z-index: 3; }
+
+        /* Custom Dynamic Background Aurora Glows */
+        .aurora-bg {
+            position: fixed;
+            width: 150vw;
+            height: 150vh;
+            top: -25%;
+            left: -25%;
+            background: radial-gradient(circle, rgba(212,43,117,0.1) 0%, rgba(31,5,51,0) 70%);
+            z-index: 0;
+            pointer-events: none;
+            animation: auroraOrbit 30s infinite linear;
+        }
+
+        @keyframes auroraOrbit {
+            0% { transform: rotate(0deg) translate(0, 0); }
+            50% { transform: rotate(180deg) translate(-10%, 10%); }
+            100% { transform: rotate(360deg) translate(0, 0); }
+        }
+
+        /* Glassmorphic Premium Panel UI */
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(14px) saturate(140%);
+            -webkit-backdrop-filter: blur(14px) saturate(140%);
+            border: 1px solid var(--glass-border);
+            border-radius: 28px;
+            box-shadow: 0 12px 40px 0 rgba(15, 2, 26, 0.6);
+            padding: 2.5rem;
+            width: 100%;
+            max-width: 520px;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .glass-panel:hover {
+            border-color: var(--rose-gold);
+            box-shadow: 0 16px 50px 0 rgba(229, 169, 60, 0.25);
+            transform: translateY(-4px);
+        }
+
+        /* Ultra Premium Text Glows and Highlights */
+        .text-glow-pink {
+            text-shadow: 0 0 12px rgba(212, 43, 117, 0.7),
+                         0 0 24px rgba(212, 43, 117, 0.4),
+                         0 0 36px rgba(212, 43, 117, 0.2);
+        }
+
+        .text-glow-gold {
+            text-shadow: 0 0 12px rgba(229, 169, 60, 0.7),
+                         0 0 24px rgba(229, 169, 60, 0.4),
+                         0 0 36px rgba(229, 169, 60, 0.2);
+            color: var(--rose-gold);
+        }
+
+        /* Dynamic Parallax Section Layouts (10 Sections) */
+        section {
+            position: relative;
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 5rem 1.5rem;
+            z-index: 2;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(212, 43, 117, 0.08);
+        }
+
+        /* Interactive Floating Symbols Layer */
+        .floating-char {
+            position: absolute;
+            font-size: 5.5rem;
+            font-weight: 900;
+            color: rgba(229, 169, 60, 0.06);
+            pointer-events: none;
+            z-index: 1;
+            font-family: var(--font-devanagari);
+            animation: elegantFloat 16s infinite ease-in-out;
+        }
+
+        @keyframes elegantFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+            50% { transform: translateY(-40px) rotate(12deg) scale(1.08); }
+        }
+
+        /* Preloader */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--dark-purple);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .loader-logo {
+            font-family: var(--font-royal);
+            font-size: clamp(3.5rem, 10vw, 5.5rem);
+            color: var(--rose-gold);
+            text-shadow: 0 0 25px rgba(229, 169, 60, 0.85);
+            animation: pulseDivine 2.5s infinite ease-in-out;
+        }
+
+        @keyframes pulseDivine {
+            0%, 100% { opacity: 0.5; transform: scale(0.92); text-shadow: 0 0 15px rgba(229, 169, 60, 0.4); }
+            50% { opacity: 1; transform: scale(1.06); text-shadow: 0 0 40px rgba(229, 169, 60, 0.95); }
+        }
+
+        .loader-bar {
+            width: 220px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 4px;
+            margin-top: 2rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .loader-fill {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, var(--royal-pink), var(--rose-gold));
+            animation: fillLoaderProgression 3s forwards cubic-bezier(0.1, 0.8, 0.25, 1);
+        }
+
+        @keyframes fillLoaderProgression {
+            to { width: 100%; }
+        }
+
+        /* HUD & Controls Area */
+        .hud-control {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            z-index: 1000;
+            display: flex;
+            gap: 16px;
+        }
+
+        .hud-btn {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--rose-gold);
+            cursor: pointer;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .hud-btn:active {
+            transform: scale(0.9);
+            border-color: var(--rose-gold);
+        }
+
+        .hud-btn.active {
+            background: var(--royal-pink);
+            border-color: var(--rose-gold);
+            color: #fff;
+            box-shadow: 0 0 20px var(--royal-pink);
+        }
+
+        /* Love Meter Tracker UI (Interactive Vertical Tracker) */
+        .love-meter-track {
+            position: fixed;
+            left: 24px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 280px;
+            background: rgba(255,255,255,0.06);
+            border-radius: 4px;
+            z-index: 1000;
+            box-shadow: inset 0 0 6px rgba(0,0,0,0.6);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .love-meter-fill {
+            width: 100%;
+            height: 0%;
+            background: linear-gradient(to top, var(--royal-pink), var(--rose-gold));
+            border-radius: 4px;
+            box-shadow: 0 0 15px var(--royal-pink);
+            transition: height 0.15s ease-out;
+        }
+
+        .love-meter-indicator {
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 18px;
+            height: 18px;
+            background: var(--rose-gold);
+            border: 2px solid #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 12px var(--rose-gold);
+            transition: top 0.15s ease-out;
+        }
+
+        /* 1. Hero Section Setup */
+        .hero-title {
+            font-size: clamp(5rem, 18vw, 10.5rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, #FFFFFF 10%, #F5CEE6 50%, var(--rose-
+
+```
+      
